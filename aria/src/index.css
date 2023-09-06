@@ -1,7 +1,45 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-body{
-  background: #1a1b26;
-  color: white;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 3px;
 }
+body{
+  background: rgb(29, 29, 29);
+  color: rgb(235, 235, 235);
+}
+input{
+  display: block;
+  background-color: black;
+  color: rgb(235, 235, 235);
+  border: 1px solid rgb(73, 73, 73);
+  border-radius: 3px;
+  padding: 3px 12px 5px 11px;
+  font-size: 1rem;
+}
+button{
+  background-color: black;
+  color: rgb(235, 235, 235);
+  border-radius: 3px;
+  padding: 5px 12PX;
+  border: 1px solid rgb(73, 73, 73);
+  min-width: 70px
+  
+}
+button:hover{
+  cursor: pointer;
+  background-color: rgb(38, 38, 38);
+}
+
+select{
+  background-color: black;
+  color: rgb(235, 235, 235);
+  padding: 0 12px;
+  border: 1px solid rgb(73, 73, 73);
+  border-radius: 3px;
+}
+
+

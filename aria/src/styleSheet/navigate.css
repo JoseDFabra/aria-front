@@ -1,0 +1,33 @@
+.nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(29, 29, 29);
+}
+.links{
+  display: flex;
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  background-color: green;
+  padding: 0 12px;
+  color: white !important;
+}
+.link:hover{
+  background-color: rgb(63, 63, 63);
+}
+a:link{
+  color: white;
+  text-decoration: none;
+}
+a:visited{
+  color: white;
+  text-decoration: none;
+}
+a:actived{
+  color: white;
+  background-color: rgb(63, 63, 63);
+  text-decoration: none;
+}

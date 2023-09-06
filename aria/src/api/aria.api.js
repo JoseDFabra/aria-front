@@ -1,7 +1,15 @@
-import axios from 'axios'
+import axios from "axios";
 
+const robotApi = axios.create({
+  baseURL: "http://localhost:8000/api/v1/edit/",
+});
 
-export const getAllPoints=()=>{
-  return axios.get('http://015b-186-169-139-101.ngrok-free.app/api/v1/edit/point/')
- 
-}
+export const getAllPoints = () => robotApi.get("point/");
+
+export const getpoint =(id)=> robotApi.get(`point/${id}/`)
+
+export const createPoint = (point) => robotApi.post("point/", point);
+
+export const deletePoint = (id) => robotApi.delete(`point/${id}/`);
+
+export const updatePoint = (id, point) => robotApi.put(`point/${id}/`, point);
