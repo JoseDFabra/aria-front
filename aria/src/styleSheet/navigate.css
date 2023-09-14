@@ -1,32 +1,32 @@
-.nav{
+.nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: rgb(29, 29, 29);
 }
-.links{
+.links {
   display: flex;
 }
-.link{
+
+.link {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
-  background-color: green;
   padding: 0 12px;
   color: white !important;
 }
-.link:hover{
+.link:hover {
   background-color: rgb(63, 63, 63);
 }
-a:link{
+a:link {
   color: white;
   text-decoration: none;
 }
-a:visited{
+a:visited {
   color: white;
   text-decoration: none;
 }
-a:actived{
+a:actived {
   color: white;
   background-color: rgb(63, 63, 63);
   text-decoration: none;

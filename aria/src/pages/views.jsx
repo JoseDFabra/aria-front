@@ -3,6 +3,7 @@ export function Views(){
   return(
     <>
       <h2>HOLA DESDE EL VIEW</h2>
+      
     </>
   );
 }

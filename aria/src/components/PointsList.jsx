@@ -1,3 +1,5 @@
+import "../styleSheet/crud.css";
+import { ReactSortable } from "react-sortablejs";
 import { useEffect, useState } from "react";
 import {
   getAllPoints,
@@ -15,17 +17,16 @@ export function PointList() {
     formState: { errors },
     reset,
     setValue,
-    watch
+    watch,
   } = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
-    try{
+    try {
       console.log(data);
       await createPoint(data);
       reset();
-    }
-    catch(error){
-      console.error('onsubmit error: ' + error);
+    } catch (error) {
+      console.error("onsubmit error: " + error);
     }
   });
   const [currentPunto, setCurrentPunto] = useState(undefined);
@@ -55,7 +56,7 @@ export function PointList() {
     if (currentPunto) {
       llamada();
     }
-  }, [currentPunto, setValue,]);
+  }, [currentPunto, setValue]);
 
   const handleChangeOptionPoints = (e) => {
     const value = e.target.value;
@@ -75,19 +76,17 @@ export function PointList() {
     setPuntos(nuevoPointOptions);
     setCurrentPunto(null);
   };
-  console.log('nombre nuevo:', watch());
+  console.log("nombre nuevo:", watch());
 
   const actualizandoPunto = async () => {
-    try{
-      console.log('nombre anterior que quiero actualizar', currentPunto.name);
+    try {
+      console.log("nombre anterior que quiero actualizar", currentPunto.name);
       const res = await updatePoint(currentPunto.name, watch());
       console.log(res);
       console.log(currentPunto.name);
       console.log(currentPunto);
-
-    }
-    catch(error){
-      console.error('Actualizacion fallida', error);
+    } catch (error) {
+      console.error("Actualizacion fallida", error);
     }
   };
   return (
@@ -152,7 +151,7 @@ export function PointList() {
       </button>
 
       <button
-        onClick={async() => {
+        onClick={async () => {
           if (window.confirm("Are you sure you want to update this point?")) {
             const res = await actualizandoPunto();
             console.log(res);
@@ -161,20 +160,31 @@ export function PointList() {
       >
         Update
       </button>
+      <p>{currentPunto ? JSON.stringify(currentPunto) : ""}</p>
       <br />
       <select name="puntos" onChange={handleChangeOptionPoints}>
         <option value={""}>Seleccionar punto</option>
         {puntos.map((p, i) => (
           <option className="lista-li" key={i} value={JSON.stringify(p)}>
-            {`${p.name}: [${p.motor1_angle}],
-                  [${p.motor2_angle}],
-                  [${p.motor3_angle}],
-                  [${p.motor4_angle}],
-                  [${p.motor5_angle}]`}
+            {`${p.name}: [
+                  ${p.motor1_angle}],
+                  ${p.motor2_angle},
+                  ${p.motor3_angle},
+                  ${p.motor4_angle},
+                  ${p.motor5_angle}
+                  ]`}
           </option>
         ))}
       </select>
-      <p>{currentPunto ? JSON.stringify(currentPunto) : ""}</p>
+      <div className="contenedor-lista-view">
+        <ReactSortable list={puntos} setList={setPuntos} className="viewPuntos">
+          {puntos.map((item, i) => (
+            <div key={item.id} className="punto-en-el-view">
+              {i}. {item.name}
+            </div>
+          ))}
+        </ReactSortable>
+      </div> 
     </>
   );
 }

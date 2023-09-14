@@ -1,0 +1,24 @@
+.contenedor-lista-view{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.viewPuntos{
+  width: 200px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(57, 57, 57);
+}
+
+.punto-en-el-view{
+  background-color: black;
+  list-style: none;
+  width: 80%;
+  cursor: pointer;
+}
